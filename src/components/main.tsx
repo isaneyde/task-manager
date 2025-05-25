@@ -1,14 +1,34 @@
-import {PlusCircleIcon} from "@phosphor-icons/react"
-export const Main=()=>{
-    return(
-        <main className="bg-white h-screen">
-       <fieldset className="fieldset ">
-  <input type="text" className="input text-center bg-emerald-100 text-black " placeholder="What is the task?" />
-      <PlusCircleIcon size={32} fill="" className="ml-70 "/>
-</fieldset>
-    </main>
+import { CheckCircleIcon, PlusCircleIcon } from "@phosphor-icons/react"
+import { TrashIcon } from "@phosphor-icons/react/dist/ssr";
+import { useState } from "react"
+export const Main = () => {
+    const [task, setTask] = useState(" ");
+    const [isHidden, setIsHidden] = useState(false);
+    const [list,setList]=useState(0);
+    const add=()=>{
+        setTask(addList=>addList+1.)
+    }
+    return (
+        <main className="bg-white h-screen justify-items-center">
+            <fieldset className="fieldset">
+                <input type="text" className="input text-center bg-emerald-200 text-black  mt-5"
+                    placeholder="What is the task?" value={task} onChange={(event) => setTask(event.target.value)} />
+                <button onClick={()=>setIsHidden(!isHidden)}><PlusCircleIcon size={32} color="green"
+                    className="ml-85 -mt-10" /></button>
+
+            </fieldset>
+            <div style={{ display: isHidden ? 'none' : 'block' }} >
+                <div className="w-80 h-10 rounded 2xl 
+ bg-emerald-100 p-2 text-center text-black border-1 border-emerald-400 mr-5">{task}</div>
+                <div className="ml-80 -mt-9">
+                    <button> <CheckCircleIcon size={32} color="green" className="" /></button>
+                    <button onClick={() => setIsHidden(!isHidden)}> <TrashIcon size={32} color="red" className="" /></button>
+                </div>
+            </div>
+
+        </main>
 
 
     )
-    
+
 }
