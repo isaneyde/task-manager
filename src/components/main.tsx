@@ -33,9 +33,11 @@ export const Main = () => {
                         <div key={index}>
                             <div className="w-80 h-10 rounded 2xl 
  bg-emerald-100 p-2 text-center text-black border-1 border-emerald-400 mr-5">{task.text}</div>
-                        <div className="ml-80 -mt-9"><span className="float-left absolute text-black right-90 text-xs mt-4">{new Date().toLocaleDateString("pt-mz")}</span>
+                        <div className="ml-80 -mt-9">
+                                <span className="float-left absolute text-black right-90 text-xs opacity-50 block"><span>{new Date().toLocaleDateString()}</span>
+                                 </span>
                                 <button> <CheckCircleIcon size={32} color="green" /></button>
-                                <button onClick={()=>removeTask(index)} > <TrashIcon size={32} color="red" /></button>
+                                <button onClick={()=>removeTask(index)}> <TrashIcon size={32} color="red" /></button>
                             </div>
 
                         </div>
